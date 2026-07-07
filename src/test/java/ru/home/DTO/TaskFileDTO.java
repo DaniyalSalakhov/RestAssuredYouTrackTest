@@ -8,13 +8,11 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class TaskDTO {
+@NoArgsConstructor
+public class TaskFileDTO {
     private String id;
-    private ProjectDTO project;
-    private String summary;
-    private String description;
+    private String name;
     @JsonProperty("$type")
     private String type;
 }
