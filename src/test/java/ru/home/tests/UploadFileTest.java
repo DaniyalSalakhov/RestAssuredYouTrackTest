@@ -2,7 +2,6 @@ package ru.home.tests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import ru.home.DTO.ProjectDTO;
@@ -10,22 +9,15 @@ import ru.home.DTO.TaskDTO;
 import ru.home.DTO.TaskFileDTO;
 import ru.home.api.TasksApi;
 import ru.home.specifications.Specifications;
-
 import java.io.File;
-import java.util.Arrays;
-import java.util.List;
-
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 public class UploadFileTest extends BaseTest {
     private String taskId;
-    private TasksApi  tasksApi;
+    private TasksApi tasksApi = new TasksApi();
 
     @BeforeEach
     public void setup() {
-        tasksApi = new TasksApi();
         TaskDTO request = TaskDTO.builder()
                 .project(ProjectDTO.builder().id("0-0").build())
                 .summary("UploadFileTest")
