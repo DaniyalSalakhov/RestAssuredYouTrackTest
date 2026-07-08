@@ -3,14 +3,11 @@ package ru.home.tests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.home.DTO.TaskDTO;
-import ru.home.DTO.ProjectDTO;
-import ru.home.api.TasksApi;
 import ru.home.factory.TaskFactory;
 import ru.home.specifications.Specifications;
 
 public class DeleteTaskTest extends BaseTest{
     private String taskId;
-    private TasksApi tasksApi = new TasksApi();
 
     @BeforeEach
     public void setup(){
