@@ -14,15 +14,12 @@ public class DeleteTaskTest extends BaseTest{
         String projectId = "0-0";
         String summary = "TaskToDelete";
         String description = "testingApi";
-        TaskDTO response = tasksApi.createTask(TaskFactory.createTask(projectId, summary, description))
-                .then().spec(Specifications.response200())
-                .extract().as(TaskDTO.class);
-        taskId = response.getId();
+        TaskDTO task = tasksSteps.createTask(projectId, summary, description);
+        taskId = task.getId();
     }
 
     @Test
     public void deleteTask() {
-        tasksApi.deleteTask(taskId).then().spec(Specifications.response200());
-        tasksApi.getTask(taskId).then().spec(Specifications.response404());
+        tasksSteps.deleteTask(taskId);
     }
 }

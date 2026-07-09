@@ -22,14 +22,6 @@
             <version>6.0.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- Source: https://mvnrepository.com/artifact/junit/junit -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
-
         <!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -37,11 +29,11 @@
             <version>6.1.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- Source: https://mvnrepository.com/artifact/com.epam.jdi/jdi-dark -->
+        <!-- Source: https://mvnrepository.com/artifact/io.qameta.allure/allure-java-commons -->
         <dependency>
-            <groupId>com.epam.jdi</groupId>
-            <artifactId>jdi-dark</artifactId>
-            <version>1.1.13</version>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>2.35.3</version>
             <scope>compile</scope>
         </dependency>
         <!-- Source: https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->

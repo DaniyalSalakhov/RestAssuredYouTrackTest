@@ -15,16 +15,14 @@ public class CreateTaskTest extends BaseTest {
     @ParameterizedTest
     @CsvSource({"0-0, Test, TestingAPI"})
     public void createTask(String projectId, String summary, String description) {
-        TaskDTO response = tasksApi.createTask(TaskFactory.createTask(projectId, summary, description))
-                .then().spec(Specifications.response200())
-                .extract().as(TaskDTO.class);
-        taskId = response.getId();
+        TaskDTO task = tasksSteps.createTask(projectId, summary, description);
+        taskId = task.getId();
 
         assertNotNull(taskId);
     }
 
     @AfterEach
     void shutDown() {
-        tasksApi.deleteTask(taskId).then().spec(Specifications.response200());
+        tasksSteps.deleteTask(taskId);
     }
 }

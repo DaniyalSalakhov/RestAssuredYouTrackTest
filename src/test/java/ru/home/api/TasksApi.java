@@ -19,7 +19,7 @@ public class TasksApi {
                 .when().delete("/issues/{id}", taskId);
     }
 
-    public Response getTask(String taskId){
+    public Response getTaskById(String taskId){
         return RestAssured.given()
                 .when().get("/issues/{id}", taskId);
     }
