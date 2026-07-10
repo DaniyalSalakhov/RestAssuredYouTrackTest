@@ -15,8 +15,10 @@ public class CreateTaskTest extends BaseTest {
     @ParameterizedTest
     @CsvSource({"0-0, Test, TestingAPI"})
     public void createTask(String projectId, String summary, String description) {
-        TaskDTO task = tasksSteps.createTask(projectId, summary, description);
-        taskId = task.getId();
+        TaskDTO response = tasksApi.createTask(TaskFactory.createTask(projectId, summary, description))
+                .then().spec(Specifications.response200())
+                .extract().as(TaskDTO.class);
+        taskId = response.getId();
 
         assertNotNull(taskId);
     }

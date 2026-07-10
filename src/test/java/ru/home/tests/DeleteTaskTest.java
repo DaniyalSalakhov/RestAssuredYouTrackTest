@@ -3,8 +3,6 @@ package ru.home.tests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.home.DTO.TaskDTO;
-import ru.home.factory.TaskFactory;
-import ru.home.specifications.Specifications;
 
 public class DeleteTaskTest extends BaseTest{
     private String taskId;

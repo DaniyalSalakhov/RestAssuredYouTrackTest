@@ -6,6 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import ru.home.DTO.TaskDTO;
 import ru.home.DTO.TaskFileDTO;
+import ru.home.specifications.Specifications;
+
 import java.io.File;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,7 +27,8 @@ public class UploadFileTest extends BaseTest {
     @CsvSource({"src/test/resources/files, uploadTestFile.txt"})
     public void uploadFile(String path, String fileName) {
         File file = new File(path, fileName);
-        TaskFileDTO[] files = tasksSteps.uploadFile(taskId, file);
+        TaskFileDTO[] files = tasksApi.uploadFile(taskId, file).then().spec(Specifications.response200())
+                .extract().as(TaskFileDTO[].class);
         assertEquals(fileName, files[0].getName());
     }
 

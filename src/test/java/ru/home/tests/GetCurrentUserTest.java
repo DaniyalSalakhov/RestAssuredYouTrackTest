@@ -11,7 +11,8 @@ public class GetCurrentUserTest extends BaseTest{
     @ParameterizedTest
     @CsvSource({"admin, admin"})
     void returnCurrentUser(String login, String username){
-        UserDTO user = usersSteps.getCurrentUser();
+        UserDTO user = usersApi.getCurrentUser()
+                .then().spec(Specifications.response200()).extract().as(UserDTO.class);
 
         assertEquals(login, user.getLogin());
         assertEquals(username, user.getUsername());
